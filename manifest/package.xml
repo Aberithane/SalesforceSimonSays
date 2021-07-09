@@ -5,5 +5,13 @@
 		<members>SimonSaysHarness</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
+	<types>
+		<members>BeepNoise</members>
+		<members>Beep_C</members>
+		<members>Beep_D</members>
+		<members>Beep_F</members>
+		<members>Beep_G</members>
+		<name>StaticResource</name>
+	</types>
 	<version>51.0</version>
 </Package>
