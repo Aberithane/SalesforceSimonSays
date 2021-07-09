@@ -22,9 +22,9 @@
     <div>    
         <lightning:button variant="base" label="Start / Reset" title="Start Game" onclick="{! c.Init }"/>	
     </div>
-<div class="slds-align_absolute-center">
+<div class="slds-align_absolute-center" >
 
-    <div class="c-container">
+    <div class="c-container" >
         <lightning:layout multipleRows="true">
             <lightning:layoutItem size="6" padding="around-small">
                 <span onclick="{! c.handleClick_yellow }" disabled="{!v.inputWaitTimer}">

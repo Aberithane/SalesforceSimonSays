@@ -17,5 +17,10 @@
 
 
 .THIS .button {
-    font-size: 200px;
+    font-size: 250px;
+}
+
+.THIS .c-container {
+    border: 5px outset black;
+    	text-align: center;
 }
