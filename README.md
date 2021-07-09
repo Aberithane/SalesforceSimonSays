@@ -10,7 +10,7 @@ As you play through, when you reach the end of a sequence it will restart you ba
 
 In the gif below, the current set up is the sequence has been shown to me, and I repeat it, you can then notice the buttons being greyed out as it starts displaying the sequence again, indicating no input is possible (and clicking on a square would do nothing too)
 
-<img src="https://gyazo.com/11b0a98104179dc13fca22f7ad81cbd3.gif" width="300">
+<img src="https://gyazo.com/ca11ae376d3d6923619529681619a61f.gif" width="300">
 
 
 The squares themselves can be pressed,
