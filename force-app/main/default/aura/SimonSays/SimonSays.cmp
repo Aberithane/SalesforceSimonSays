@@ -1,0 +1,40 @@
+<aura:component >
+    
+    <aura:attribute name="simonSequence" type="Integer[]" default="1, 2, 3, 4"/>
+    <aura:attribute name="progressPosition" type="Integer" default="0"/>
+    <aura:attribute name="showSequence" type="String" default="Game Not Started" />
+    <!--<aura:handler name="init" value="{! this }" action="{! c.Init }"/>-->
+    <aura:attribute name="inputWaitTimer" type="Boolean" default="true"/>
+    
+	<aura:attribute name="showDebug" type="Boolean" default="false"/>
+    
+	<section>
+	<lightning:button variant="base" label="Show Debug" title="Show Debug" onclick="{! c.showDebugClick }"/>
+    <aura:if isTrue="{!v.showDebug}">
+    <h1> Current Sequence {!v.showSequence}</h1>
+    <h1> Current Progress {!v.progressPosition}</h1>
+	<label> Yellow: 1 ; Blue: 3 ; Red: 2 ; Green: 4; </label>
+  	</aura:if>
+	<aura:if isTrue="{!!v.showDebug}">
+  	</aura:if>  
+    </section>
+	
+    
+    <div>    
+        <lightning:button variant="base" label="Start / Reset" title="Start Game" onclick="{! c.Init }"/>	
+    </div>
+    <div>
+        <p id="display" hidden="true">Preview</p>
+    </div>
+    
+    <div class="button-grid">
+        <lightning:button class="yellow-button" label="Yellow" title="Yellow Button" disabled="{!v.inputWaitTimer}" onclick="{! c.handleClick_yellow }"/>
+
+        <lightning:button variant="brand" label="Blue" title="Blue Button" disabled="{!v.inputWaitTimer}" onclick="{! c.handleClick_blue }" />
+
+        <lightning:button variant="destructive" label="Red" title="Red Button" disabled="{!v.inputWaitTimer}" onclick="{! c.handleClick_red }"/>
+
+        <lightning:button variant="success" label="Green" title="Green Button" disabled="{!v.inputWaitTimer}" onclick="{! c.handleClick_green }"/>
+    </div>
+    
+</aura:component>
