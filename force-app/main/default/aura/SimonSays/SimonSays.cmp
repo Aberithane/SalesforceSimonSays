@@ -1,4 +1,4 @@
-<aura:component >
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
     
     <aura:attribute name="simonSequence" type="Integer[]" default="1, 2, 3, 4"/>
     <aura:attribute name="progressPosition" type="Integer" default="0"/>
@@ -22,9 +22,7 @@
     <div>    
         <lightning:button variant="base" label="Start / Reset" title="Start Game" onclick="{! c.Init }"/>	
     </div>
-    
-	
-    
+<div class="slds-align_absolute-center">
 
     <div class="c-container">
         <lightning:layout multipleRows="true">
@@ -49,32 +47,7 @@
                 </span>
             </lightning:layoutItem>
         </lightning:layout>
-    </div>   
-    
-    
-    
-    
-    <div class="c-container">
-        <lightning:layout >
-            <lightning:layoutItem padding="around-small">
-                
-            </lightning:layoutItem>
-            <lightning:layoutItem padding="around-small">
-                
-            </lightning:layoutItem>          
-        </lightning:layout>
-        <lightning:layout>
-            <lightning:layoutItem padding="around-small">
-                
-            </lightning:layoutItem>
-            <lightning:layoutItem padding="around-small">
-                
-            </lightning:layoutItem>          
-        </lightning:layout>
-    </div>
-    
-    
-    <div class="button-grid">
+	<div class="slds-align-middle">
         <lightning:button class="yellow-button" label="Yellow" title="Yellow Button" disabled="{!v.inputWaitTimer}" onclick="{! c.handleClick_yellow }"/>
         
         <lightning:button variant="brand" label="Blue" title="Blue Button" disabled="{!v.inputWaitTimer}" onclick="{! c.handleClick_blue }" />
@@ -83,5 +56,9 @@
         
         <lightning:button variant="success" label="Green" title="Green Button" disabled="{!v.inputWaitTimer}" onclick="{! c.handleClick_green }"/>
     </div>
+    </div>   
+ </div>
+    
+    
     
 </aura:component>

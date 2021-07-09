@@ -49,9 +49,11 @@
     //The set of the following color related methods are to check player input against an array of the color sequence
     handleClick_yellow : function(component, event) {
         // yellow = 1			
-        this.playSound(1);    
+        this.playSound(1);
+		
         if (component.get("v.simonSequence")[component.get("v.progressPosition")] == 1 /* Yellow*/)
         {
+			this.parseColorInput (component, event, 1);   
             // if it is the last number in the sequence, call playSimon and add a new number onto the end, and return player to the 
             //first position of the sequence
             if(component.get("v.simonSequence").length == component.get("v.progressPosition")+1){
@@ -65,11 +67,9 @@
         else {
             // If incorrect input is given turn game off
             component.set("v.progressPosition", 0);
+            
+            this.colorsToBlack();
             alert("Incorrect Input");
-            document.getElementById("display-yellow").style.color="black";
-            document.getElementById("display-red").style.color="black";
-            document.getElementById("display-blue").style.color="black";
-            document.getElementById("display-green").style.color="black";
             component.set("v.inputWaitTimer", true);
         }
         
@@ -78,9 +78,11 @@
     
     handleClick_red : function(component, event) {
         // red = 2  	
-        this.playSound(2);    
+        this.playSound(2);
+		
         if (component.get("v.simonSequence")[component.get("v.progressPosition")] == 2 /* Red */)
         {
+			this.parseColorInput (component, event, 2);   
             if(component.get("v.simonSequence").length == component.get("v.progressPosition")+1){
                 this.playSimon(component, event);
                 component.set("v.progressPosition",0);
@@ -92,20 +94,20 @@
         }
         else {
             component.set("v.progressPosition", 0);
+            
+            this.colorsToBlack();
             alert("Incorrect Input");
-            document.getElementById("display-yellow").style.color="black";
-            document.getElementById("display-red").style.color="black";
-            document.getElementById("display-blue").style.color="black";
-            document.getElementById("display-green").style.color="black";
             component.set("v.inputWaitTimer", true);
         }
     },
     
     handleClick_blue : function(component, event) {
         // blue = 3      
-        this.playSound(3);    
+        this.playSound(3);
+		   
         if (component.get("v.simonSequence")[component.get("v.progressPosition")] == 3 /* Blue */)
         {
+			this.parseColorInput (component, event, 3);  
             if(component.get("v.simonSequence").length == component.get("v.progressPosition")+1){
                 this.playSimon(component, event);
                 component.set("v.progressPosition",0);
@@ -118,20 +120,20 @@
         }
         else {
             component.set("v.progressPosition", 0);
+            
+            this.colorsToBlack();
             alert("Incorrect Input");
-            document.getElementById("display-yellow").style.color="black";
-            document.getElementById("display-red").style.color="black";
-            document.getElementById("display-blue").style.color="black";
-            document.getElementById("display-green").style.color="black";
             component.set("v.inputWaitTimer", true);
         }
     },
     
     handleClick_green : function(component, event) {
         // green = 4
-		this.playSound(4);       
+        this.playSound(4);
+		   
         if (component.get("v.simonSequence")[component.get("v.progressPosition")] == 4 /* Green */)
         {
+			this.parseColorInput (component, event, 4); 
             if(component.get("v.simonSequence").length == component.get("v.progressPosition")+1){
                 this.playSimon(component, event);
                 component.set("v.progressPosition",0);
@@ -143,11 +145,9 @@
         }
         else {
             component.set("v.progressPosition", 0);
+            
+            this.colorsToBlack();
             alert("Incorrect Input");
-            document.getElementById("display-yellow").style.color="black";
-            document.getElementById("display-red").style.color="black";
-            document.getElementById("display-blue").style.color="black";
-            document.getElementById("display-green").style.color="black";
             component.set("v.inputWaitTimer", true);
         }
     },
@@ -231,6 +231,30 @@
             
         },750);
     },
+
+	parseColorInput : function (component, event, input){
+        if(input == 1){
+            document.getElementById("display-yellow").style.color="PaleGoldenRod";
+        }
+        else if(input == 2){
+            document.getElementById("display-red").style.color="Tomato";
+        }
+            else if(input == 3){
+                document.getElementById("display-blue").style.color="DeepSkyBlue";
+            }
+                else if(input == 4){
+                    document.getElementById("display-green").style.color="PaleGreen";
+                } 
+
+        window.setTimeout(function(){
+            document.getElementById("display-yellow").style.color="gold";
+            document.getElementById("display-red").style.color="red";
+            document.getElementById("display-blue").style.color="blue";
+            document.getElementById("display-green").style.color="green";
+            
+        },750);
+    },
+		
     
     //purpose is to parse through the four colors and set the prompter.
     colorPreview : function (component, event, input){
@@ -251,7 +275,7 @@
     },
     
     //Moved inside of the repeater so it has it's functionality
-	//Purpose to get an input and play back the appropriate note
+    //Purpose to get an input and play back the appropriate note
     playSound : function (player_input) {
         var urlSound = $A.get('$Resource.BeepNoise');
         
@@ -273,6 +297,13 @@
         
         var beepsound = new Audio(urlSound);   
         beepsound.play();
-    }
+    },
     
+    // Makes colors black as game ends
+    colorsToBlack : function () {
+        document.getElementById("display-yellow").style.color="black";
+        document.getElementById("display-red").style.color="black";
+        document.getElementById("display-blue").style.color="black";
+        document.getElementById("display-green").style.color="black";
+    },
 })
