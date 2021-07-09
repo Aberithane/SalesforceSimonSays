@@ -8,7 +8,7 @@ you'll find my Simon Says Aura Component and it's associate harness, currently t
 
 As you play through, when you reach the end of a sequence it will restart you back at the start, play through the sequence visually, disabling input, while also adding another step to the sequence. If you would like there is a "Show Debug" option at the top left to let you see a representation of what's going on in the back end. 
 
-<img src="https://gyazo.com/11b0a98104179dc13fca22f7ad81cbd3" width="300">
+<img src="https://gyazo.com/11b0a98104179dc13fca22f7ad81cbd3.gif" width="300">
 
 
 The squares themselves can be pressed,
