@@ -1,13 +1,15 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global">
     
+	<!-- attributes for game functionality -->
     <aura:attribute name="simonSequence" type="Integer[]" default="1, 2, 3, 4"/>
     <aura:attribute name="progressPosition" type="Integer" default="0"/>
-    
-    
+     
+	<!-- attributes for decorative control -->
     <aura:attribute name="showSequence" type="String" default="Game Not Started" />
     <aura:attribute name="inputWaitTimer" type="Boolean" default="true"/> 
     <aura:attribute name="showDebug" type="Boolean" default="false"/>
     
+	<!-- Debug Area -->
     <section>
         <lightning:button variant="base" label="Show Debug" title="Show Debug" onclick="{! c.showDebugClick }"/>
         <aura:if isTrue="{!v.showDebug}">
@@ -24,6 +26,7 @@
     </div>
 <div class="slds-align_absolute-center" >
 
+	<!-- Main Game Area -->
     <div class="c-container" >
         <lightning:layout multipleRows="true">
             <lightning:layoutItem size="6" padding="around-small">
@@ -58,7 +61,5 @@
     </div>
     </div>   
  </div>
-    
-    
-    
+       
 </aura:component>
